@@ -40,13 +40,13 @@ We collect tweets using the streaming Tweepy API. The script actively receives t
 \[
 t_{j+1} = t_{j} + \delta t, ~ j=1,\cdots, N_{T}-1.
 \]
-We have several collections of tweets over different dates and for different hashtags. Using the text of each tweet, we can determine if the tweet is an orignal message or a retweet. If the 
-text of a tweet begins with ''RT @", the tweet is a retweet of another message. The text following ''RT @" identifies the user who wrote the original message. In the absence of ''RT @", the
-tweet must be original. If the tweet is a retweet at time $t_j$, we introduce nodes for both users (if no representative node is already present) and an edge from the original user to the 
-retweeting user. Otherwise, a new node representing the user is introduced to the graph. The resulting graph at $t_j$ illustrates connections between users who have posted using a particular
-hashtag since the initialization of the stream. Although the graph is initally directed, the edges are later taken to be undirected when counting motif appearances. 
+We have several collections of tweets over different dates and for different hashtags. Using the text of each tweet, we can determine if the tweet is an original message or a retweet. If the 
+text of a tweet begins with ''RT @", the tweet is a retweet of another message. The immediate text following ''RT @" identifies the user who wrote the original message. In the absence of ''RT @", the
+tweet must be an original message. If the tweet is a retweet at time $t_j$, we introduce nodes for both users (the original poster and retweeter) and an edge between the two nodes.
+ Otherwise, a new node representing the user is introduced to the graph. The resulting graph at $t_j$ illustrates connections between users who have posted using a particular
+hashtag since the initialization of the stream. Although the graph is initially directed, the edges are later taken to be undirected when counting motif appearances. 
 
-The tracklist was chosen either as a starting point for data, or the hasthags were trending on that particular day.  We also have a collection of tweets that occured during the last day of the 2021 Bitcoin conference.
+The tracklist was chosen either as a starting point for data, or the hashtags were trending on that particular day.  We also have a collection of tweets that occurred during the last day of the 2021 Bitcoin conference.
 
 \begin{table}[h!]
     \centering
